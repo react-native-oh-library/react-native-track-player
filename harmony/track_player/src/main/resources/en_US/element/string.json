@@ -1,0 +1,16 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "module description"
+    },
+    {
+      "name": "Track_playerAbility_desc",
+      "value": "description"
+    },
+    {
+      "name": "Track_playerAbility_label",
+      "value": "label"
+    }
+  ]
+}

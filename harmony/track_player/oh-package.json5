@@ -1,0 +1,12 @@
+{
+  "name": "@react-native-oh-tpl/react-native-track-player",
+  "version": "4.1.1",
+  "description": "Please describe the basic information.",
+  "main": "index.ets",
+  "author": "",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@rnoh/react-native-openharmony": 'file:../libs/react_native_openharmony-5.0.0.490.har'
+  }
+}
+
