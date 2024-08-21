@@ -1,0 +1,9 @@
+{
+  "module": {
+    "name": "track_player",
+    "type": "har",
+    "deviceTypes": [
+      "default"
+    ]
+  }
+}

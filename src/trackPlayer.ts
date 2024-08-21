@@ -5,7 +5,6 @@ import {
   Platform,
 } from 'react-native';
 
-import TrackPlayer from './TrackPlayerModule';
 import { Event, RepeatMode, State } from './constants';
 import type {
   AddTrack,
@@ -20,11 +19,15 @@ import type {
   UpdateOptions,
 } from './interfaces';
 import resolveAssetSource from './resolveAssetSource';
+import { TurboModuleRegistry } from "react-native";
+import { NativeModules } from 'react-native';
+
+const TrackPlayer = TurboModuleRegistry ? TurboModuleRegistry.get('ReactNativeTrackPlayer') : NativeModules.TrackPlayer;
 
 const emitter =
-  Platform.OS !== 'android'
-    ? new NativeEventEmitter(TrackPlayer)
-    : DeviceEventEmitter;
+  Platform.OS === 'android'||'harmony'
+    ? DeviceEventEmitter
+    : new NativeEventEmitter(TrackPlayer);
 
 // MARK: - Helpers
 

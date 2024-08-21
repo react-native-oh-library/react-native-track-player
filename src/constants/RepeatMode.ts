@@ -2,9 +2,9 @@ import TrackPlayer from '../TrackPlayerModule';
 
 export enum RepeatMode {
   /** Playback stops when the last track in the queue has finished playing. */
-  Off = TrackPlayer.REPEAT_OFF,
+  Off = 0,
   /** Repeats the current track infinitely during ongoing playback. */
-  Track = TrackPlayer.REPEAT_TRACK,
+  Track = 1,
   /** Repeats the entire queue infinitely. */
-  Queue = TrackPlayer.REPEAT_QUEUE,
+  Queue = 2,
 }
