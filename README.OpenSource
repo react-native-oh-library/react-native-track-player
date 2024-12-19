@@ -1,0 +1,11 @@
+[
+    {
+        "Name": "react-native-track-player",
+        "License": "Apache License",
+        "License File": "https://github.com/react-native-oh-library/react-native-track-player/blob/sig/LICENSE",
+        "Version Number": "4.1.1-0.0.1",
+        "Owner" : "xiafeng@huawei.com",
+        "Upstream URL": "https://github.com/doublesymmetry/react-native-track-player",
+        "Description": "track-player for react-native"
+    }
+]
