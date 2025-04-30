@@ -456,12 +456,17 @@ export class RNTrackPlayerTurboModule extends TurboModule implements TM.ReactNat
           this.buffered = value;
         }
       })
+      Logger.info(TAG, 'play playerState: ' + this.playerState);
       if (this.player === undefined) {
         return;
       }
-      if (this.playerState === AvplayerStatus.INITIALIZED) {
+      if (this.playerState === AvplayerStatus.INITIALIZED || this.playerState === AvplayerStatus.STOPPED) {
         await this.player.reset();
         Logger.info(TAG, 'play reset success');
+      }
+      if (this.playerState === AvplayerStatus.PAUSED) {
+        await this.player.play();
+        Logger.info(TAG, 'play play success');
       }
       Logger.info(TAG, 'currentTrackIndex: ' + this.currentTrackIndex);
       this.setPlayerUrl(this.queue.get(this.currentTrackIndex).url);
@@ -1011,13 +1016,13 @@ export class RNTrackPlayerTurboModule extends TurboModule implements TM.ReactNat
 
   playerStateListener() {
     this.player.on('stateChange', async (state) => {
+      this.playerState = state as AvplayerStatus;
       switch (state) {
         case AvplayerStatus.IDLE: // This state machine is triggered after the reset interface is successfully invoked.
           Logger.info(TAG, 'state idle called');
           break;
         case AvplayerStatus.INITIALIZED: // This status is reported after the playback source is set.
           Logger.info(TAG, `state initialized called : ${this.currentTrackIndex}`);
-          this.playerState = AvplayerStatus.INITIALIZED;
           // 设置元数据
           if (this.session != null) {
             // 设置元数据
@@ -1045,10 +1050,8 @@ export class RNTrackPlayerTurboModule extends TurboModule implements TM.ReactNat
           Logger.info(TAG, 'stateChange AVPlayer state completed Start play callback.');
           this.isPlaying = false;
           this.currentTimeMs = 0;
-          if (this.playerState === AvplayerStatus.INITIALIZED) {
-            await this.player.reset();
-            Logger.info(TAG, 'play reset success');
-          }
+          await this.player.reset();
+          Logger.info(TAG, 'play reset success');
           this.loopPlay();
           this.setPlayerUrl(this.queue.get(this.currentTrackIndex).url);
           break;
