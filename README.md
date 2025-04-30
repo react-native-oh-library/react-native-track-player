@@ -1,6 +1,6 @@
 # @react-native-oh-tpl/react-native-track-player
 
-This project is based on [react-native-track-player](https://github.com/doublesymmetry/react-native-track-player)
+This project is based on [react-native-track-player@4.1.1](https://github.com/doublesymmetry/react-native-track-player/tree/v4.1.1)
 
 ## Documentation
 
