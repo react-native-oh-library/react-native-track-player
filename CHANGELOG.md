@@ -1,3 +1,16 @@
+# @react-native-oh-tpl/react-native-track-player
+
+## 4.1.2 (2025-05-09)
+
+- release: @react-native-oh-tpl/react-native-track-player@4.1.2
+
+## 4.1.2-rc.1 (2025-04-30)
+
+- fix: 修复暂停后再播放时需要加载 2-3s 的问题
+- release: @react-native-oh-tpl/react-native-track-player@4.1.2-rc.1
+
+# react-native-track-player
+
 # [4.1.1](https://github.com/doublesymmetry/react-native-track-player/compare/v4.1.0...v4.1.1) (2024-03-26)
 
 - **RN:** Fixes an issue when using local assets in release builds
